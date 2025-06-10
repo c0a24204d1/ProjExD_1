@@ -10,9 +10,10 @@ def main():
     screen = pg.display.set_mode((800, 600)) #幅　縦
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg") #背景画像のsurface
+    bg_img2 = pg.transform.flip(bg_img,True, False) #背景画像の反転
     kk_img = pg.image.load("fig/3.png")     #こうかとんのsurface
-    kk_img = pg.transform.flip(kk_img, True, True)
     kk_img = pg.transform.flip(kk_img, True, False)
+    # kk_img = pg.transform.flip(kk_img, True, False)
     tmr = 0
     k = 0
     while True:
@@ -20,14 +21,14 @@ def main():
             if event.type == pg.QUIT: return
         
         
-        screen.blit(bg_img,[-tmr,0])
+       
         x = tmr
         screen.blit(bg_img,[-x,0]) #1枚目
-        screen.blit(bg_img,[-x+1600, 0])#2枚目
+        screen.blit(bg_img2,[-x+1600, 0])#2枚目
+
         screen.blit(kk_img, [300, 200])
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
         clock.tick(200)
 
 
