@@ -13,15 +13,17 @@ def main():
     kk_img = pg.image.load("fig/3.png")     #こうかとんのsurface
     kk_img = pg.transform.flip(kk_img, True, True)
     tmr = 0
+    k = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0]) #0,0に貼り付ける　ループ文の中でブリッドしないと表示されない
+        k += 5
+        screen.blit(bg_img, [k, 0]) #0,0に貼り付ける　ループ文の中でブリッドしないと表示されない
         screen.blit(kk_img, [300, 200])
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
