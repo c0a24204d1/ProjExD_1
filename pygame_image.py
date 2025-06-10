@@ -15,7 +15,7 @@ def main():
     kk_img = pg.transform.flip(kk_img, True, False)
     kk_rct = kk_img.get_rect() #こうかとん画像のRect
     kk_rct.center = 300, 200 #こうかとん画像の中心座標を設定
-    
+    move = kk_rct.move_ip(0, +1)
 
 
     tmr = 0
@@ -24,20 +24,22 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed()
+        px=0 
+        py=0
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip(0, -1)
+            py=-1 
 
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip(0, +1)
+            py=1
 
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip(-1, 0)
+            px=-1
         
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip(+2, 0)
+            px=2
         
-
-        kk_rct.move_ip(-1, 0)
+        px -= 1
+        kk_rct.move_ip(px, py)
        
         x = tmr%3200
         screen.blit(bg_img,[-x,0]) #1枚目
