@@ -13,8 +13,8 @@ def main():
     bg_img2 = pg.transform.flip(bg_img,True, False) #背景画像の反転
     kk_img = pg.image.load("fig/3.png")     #こうかとんのsurface
     kk_img = pg.transform.flip(kk_img, True, False)
-    kk_rct = kk_img.get_rect()
-    kk_rct.center = 300, 200
+    kk_rct = kk_img.get_rect() #こうかとん画像のRect
+    kk_rct.center = 300, 200 #こうかとん画像の中心座標を設定
 
 
     tmr = 0
